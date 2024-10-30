@@ -1,0 +1,16 @@
+[package]
+name = "tic-tac-toe"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clearscreen = "*"
+rand = "*"
+
+[profile.release]
+opt-level = "z"                  # Optimización para tamaño
+lto = true                       # Link Time Optimization (LTO)
+codegen-units = 1                # Fusión de unidades de compilación para una optimización más agresiva
+strip = true                     # Eliminar símbolos de depuración y no necesarios
+panic = "abort"                  # Configurar para abortar en pánico, en lugar de desempaquetar
+
